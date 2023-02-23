@@ -2,7 +2,7 @@ import SpacesFoundation from '../components/SpacesFoundation.vue';
 import { getTheme } from "storybook-tailwind-foundations";
 
 export default {
-  title: 'Foundations/Screens',
+  title: 'Design System',
   component: SpacesFoundation,
 };
 

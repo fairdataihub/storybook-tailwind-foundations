@@ -2,7 +2,7 @@ import ColorsFoundation from '../components/ColorsFoundation.vue';
 import { getTheme } from "storybook-tailwind-foundations";
 
 export default {
-  title: 'Foundations/Colors',
+  title: 'Design System',
   component: ColorsFoundation,
 };
 
