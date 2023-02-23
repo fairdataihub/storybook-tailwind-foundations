@@ -1,7 +1,7 @@
 {
   "name": "@fairdataihub/storybook-tailwind-foundations",
   "description": "Storybook tailwind foundations from tailwind.config.js as stories",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "scripts": {
     "dev": "npm run storybook",
     "build": "run-p type-check build-only",
