@@ -1,5 +1,12 @@
 
 
+### [3.0.1](https://github.com/fairdataihub/storybook-tailwind-foundations/compare/3.0.0...3.0.1) (2023-02-23)
+
+
+### :beetle: Bug Fixes
+
+* update theme path ([e6ce849](https://github.com/fairdataihub/storybook-tailwind-foundations/commit/e6ce849e409a61c86ab512b05704f8ba5a6124b4))
+
 ## 3.0.0 (2023-02-23)
 
 
