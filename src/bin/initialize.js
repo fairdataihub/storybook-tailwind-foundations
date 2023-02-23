@@ -1,4 +1,4 @@
-const findNodeModulesDir = require('./findNodeModulesDir');
+const findNodeModulesDir = require("./findNodeModulesDir");
 const resolveConfig = require("tailwindcss/resolveConfig");
 const fs = require("fs");
 const path = require("path");
@@ -7,8 +7,8 @@ const path = require("path");
  * Name and extension of the file generated in the cache
  * @type {string}
  */
-const GENERATED_FILE_NAME = "theme.json"
-const PACKAGE_NAME = "storybook-tailwind-foundations";
+const GENERATED_FILE_NAME = "theme.json";
+const PACKAGE_NAME = "@fairdataihub/storybook-tailwind-foundations";
 
 /**
  * Currently supported property keys
@@ -16,7 +16,7 @@ const PACKAGE_NAME = "storybook-tailwind-foundations";
  * Will be extended in the future
  * @type {string[]}
  */
-const supportedPropertyKeys = ['screens', 'colors', 'spacing']
+const supportedPropertyKeys = ["screens", "colors", "spacing"];
 
 /**
  * Get the path of the cache directory in node_modules
@@ -33,25 +33,22 @@ function getPackageDir() {
  * @param additionalPropertyKeys
  */
 function generateConfig(tailwindConfigPath, additionalPropertyKeys = []) {
-  const tailwindConfig = require(tailwindConfigPath) // replace with your own config file location
-  const fullConfig = resolveConfig(tailwindConfig)
+  const tailwindConfig = require(tailwindConfigPath); // replace with your own config file location
+  const fullConfig = resolveConfig(tailwindConfig);
 
   let generatedConfig = {};
 
   // merge arrays and push key/values in the generated config variable
-  [...supportedPropertyKeys, ...additionalPropertyKeys].forEach(key => {
-	generatedConfig[key] = fullConfig.theme[key];
-  })
+  [...supportedPropertyKeys, ...additionalPropertyKeys].forEach((key) => {
+    generatedConfig[key] = fullConfig.theme[key];
+  });
 
   const json = JSON.stringify(generatedConfig);
 
   try {
-		fs.writeFileSync(
-			path.resolve(getPackageDir(), GENERATED_FILE_NAME),
-			json
-		);
+    fs.writeFileSync(path.resolve(getPackageDir(), GENERATED_FILE_NAME), json);
   } catch (err) {
-		console.error(err.message);
+    console.error(err.message);
   }
 }
 
@@ -59,6 +56,8 @@ function generateConfig(tailwindConfigPath, additionalPropertyKeys = []) {
  * Core function to generate the config file
  * @param tailwindConfigPath
  */
-module.exports.default = function (tailwindConfigPath = '../../tailwind.config.js') {
+module.exports.default = function (
+  tailwindConfigPath = "../../tailwind.config.js"
+) {
   generateConfig(tailwindConfigPath);
-}
+};
